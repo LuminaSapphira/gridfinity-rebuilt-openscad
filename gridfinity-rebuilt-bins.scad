@@ -95,8 +95,10 @@ crush_ribs = true;
 chamfer_holes = true;
 // Magnet/Screw holes will be printed so supports are not needed.
 printable_hole_top = true;
+// The Gridfinity Refined thumbscrew will be cut out from bin bases.
+refined_thumbscrew = false;
 
-hole_options = bundle_hole_options(refined_holes, magnet_holes, screw_holes, crush_ribs, chamfer_holes, printable_hole_top);
+hole_options = bundle_hole_options(refined_holes, magnet_holes, screw_holes, crush_ribs, chamfer_holes, printable_hole_top, refined_thumbscrew);
 
 // ===== IMPLEMENTATION ===== //
 

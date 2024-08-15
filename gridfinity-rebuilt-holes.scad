@@ -234,8 +234,10 @@ module screw_hole(radius, height, supportless=false, chamfer_radius=0, chamfer_a
  * @param chamfer Add a chamfer to the magnet/screw hole.
  * @param supportless If the magnet/screw hole should be printed in such a way that the screw hole does not require supports.
  */
-function bundle_hole_options(refined_hole=false, magnet_hole=false, screw_hole=false, crush_ribs=false, chamfer=false, supportless=false) =
-    [refined_hole, magnet_hole, screw_hole, crush_ribs, chamfer, supportless];
+function bundle_hole_options(refined_hole=false, magnet_hole=false, screw_hole=false, crush_ribs=false, chamfer=false, supportless=false, refined_thumbscrew=false) =
+    [refined_hole, magnet_hole, screw_hole, crush_ribs, chamfer, supportless, refined_thumbscrew];
+
+function has_refined_thumbscrew(hole_options) = hole_options[6];
 
 /**
  * @brief A single magnet/screw hole.  To be cut out of the base.

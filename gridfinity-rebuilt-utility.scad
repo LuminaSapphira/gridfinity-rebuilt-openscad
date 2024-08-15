@@ -266,9 +266,16 @@ module block_base(gx, gy, l, dbnx, dbny, hole_options, off) {
     difference() {
         block_base_solid(dbnx, dbny, l, off);
 
-        pattern_circular(abs(l-d_hole_from_side/2)<0.001?1:4)
-        translate([l/2-d_hole_from_side, l/2-d_hole_from_side, 0])
-        block_base_hole(hole_options, off);
+        union() {
+            pattern_circular(abs(l-d_hole_from_side/2)<0.001?1:4)
+            translate([l/2-d_hole_from_side, l/2-d_hole_from_side, 0])
+            block_base_hole(hole_options, off);
+
+            if (has_refined_thumbscrew(hole_options)) {
+                translate([-l/2,-l/2,4])
+                import("bin-screw-hole.stl");
+            }
+        }
     }
 }
 
